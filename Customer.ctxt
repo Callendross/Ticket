@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=name\ ssn
+comment0.target=Customer(java.lang.String,\ java.lang.String)
+comment0.text=\r\n\ Customer\ info\ object.\r\n\ @param\ name\ variable\ for\ customer's\ name.\r\n\ @param\ ssn\ variable\ for\ customer's\ social\ security\ number.\r\n
+comment1.params=customer
+comment1.target=Customer(Customer)
+comment1.text=\r\n\ Customer\ object.\r\n\ @param\ customer\ no\ clue.\r\n
+comment2.params=
+comment2.target=java.lang.String\ getName()
+comment2.text=\r\n\ accessor\ for\ name.\r\n\ @return\ for\ name.\r\n
+comment3.params=name
+comment3.target=void\ setName(java.lang.String)
+comment3.text=\r\n\ mutator\ for\ name.\r\n\ @param\ name\ variable\ for\ name.\r\n
+comment4.params=
+comment4.target=java.lang.String\ getSsn()
+comment4.text=\r\n\ accessor\ for\ social\ security\ number.\r\n\ @return\ for\ ssn.\r\n
+comment5.params=ssn
+comment5.target=void\ setSsn(java.lang.String)
+comment5.text=\r\n\ mutator\ for\ social\ security\ number.\r\n\ @param\ ssn\ variable\ for\ social\ security\ number.\r\n
+comment6.params=
+comment6.target=java.lang.String\ toString()
+comment6.text=\r\n\ toString.\r\n\ @return\ for\ string\ to\ be\ returned.\r\n
+numComments=7
