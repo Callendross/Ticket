@@ -128,8 +128,8 @@ public class Flight
     public Flight copy()
     {
         Flight copyOfThis = new Flight();
-        copyOfThis.setFlightNumber(flightNumber);
-        copyOfThis.setDestination(destination);
+        copyOfThis.setFlightNumber(this.flightNumber);
+        copyOfThis.setDestination(this.destination);
         copyOfThis.setDate(this.date);
         copyOfThis.setPilot(this.getPilot());
 

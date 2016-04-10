@@ -37,7 +37,7 @@ public class TicketKiosk
         //Read in the six flights on the schedule.
         readSchedule();
     }
-    
+
     /**
      * You may change this method for testing purposes, but it
      * should be changed back when done.
@@ -52,8 +52,7 @@ public class TicketKiosk
         Scanner keyboard = new Scanner(System.in);        
         kiosk.purchaseTickets(keyboard);        
     }
-    
-    
+
     /**
      * Create a ticket based on user input.  
      * Loop until the user enters exit as a name.
@@ -63,23 +62,38 @@ public class TicketKiosk
      */
     public void purchaseTickets(Scanner keyboard)
     {
-        //Print the schedule using printSchedule().        
-        //Read in a customer name
-        //If the customer name is not "exit" then process
-        //  Read in customer ssn and create a customer object
-        //  Read in flight number
-        //  Figure out which flight belongs to that flightNumber.
-        //  Use something like this:
-        //          flight = findFlight(flightNumber)
-        //
-        //  If the flight is not null
-        //      Create a ticket object and print a ticket
-        //  If the flight is null
-        //      print an error message.
-        //Repeat these steps, only stop if exit was entered as the name.
-        
+        printSchedule();
+        System.out.println("Enter your name (or type exit): ");
+        String cname = keyboard.nextLine();
+        if (!cname.equals("exit"))
+        {
+            System.out.println("Enter your social security number: ");
+            String cssn = keyboard.nextLine();
+            Customer customer1 = new Customer(cname, cssn);
+                        
+            System.out.println("Enter your flight number: ");
+            int fnum = keyboard.nextInt();
+            Flight flight1 = findFlight(fnum);
+            if (!flight1.equals(null))
+            {
+                Ticket ticket1 = new Ticket(customer1, flight1);
+                System.out.println(" ");
+                System.out.println(ticket1.toString());
+                System.out.println(" ");
+            }
+            else 
+            {
+                System.out.println("Invalid Flight Number. Press Enter and Try again");
+                puchaseTickets(keyboard.nextLine());
+            }
+            purchaseTickets();
+        }
+        else 
+        {
+            System.exit(0);
+        }
     }
-    
+
     /**
      * DO NOT CHANGE THIS METHOD
      * All of the flights are created in methods readSchedule and
@@ -129,14 +143,14 @@ public class TicketKiosk
             return null;
         }
     }
-    
+
     /**
      * DO NOT CHANGE THIS METHOD
      * Print the schedule of flights.
      */
     public void printSchedule()
     {
-        
+
         System.out.print("-------------------------------");
         System.out.println("------------------------------");
         System.out.println(f1);
@@ -148,7 +162,7 @@ public class TicketKiosk
         System.out.print("-------------------------------");
         System.out.println("------------------------------");
     }
-    
+
     /**
      * DO NOT CHANGE THIS METHOD.
      * Read the schedule of flights from the input file.
@@ -177,6 +191,15 @@ public class TicketKiosk
     {
         //NOTE THAT YOU ARE GIVEN A SCANNER OBJECT AS A PARAMETER.
         //DO NOT use a loop here.  DO NOT open a file.  
-        return new Flight();
-    }   
-}
+        int fnum = inFile.nextInt();
+        String pname = inFile.nextLine();
+        String lic = inFile.nextLine();
+        String dat = inFile.nextLine();
+        String dest = inFile.nextLine();
+        Pilot p = new Pilot(pname, lic);
+ 
+        return new Flight(fnum,dest,p,dat);
+    } 
+
+}   
+
